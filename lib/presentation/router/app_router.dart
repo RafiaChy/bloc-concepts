@@ -9,37 +9,31 @@ import 'package:flutter_bloc_concepts/presentation/screens/second_screen.dart';
 import 'package:flutter_bloc_concepts/presentation/screens/third_screen.dart';
 
 class AppRouter {
-  final CounterCubit _counterCubit = CounterCubit();
+  // final CounterCubit _counterCubit = CounterCubit();
   Route? onGeneratingRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case '/':
         return MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-                  value: _counterCubit,
-                  child: HomeScreen(
-                      title: 'Home Screen', color: Colors.blueAccent),
-                ));
+          builder: (_) =>
+              HomeScreen(title: 'Home Screen', color: Colors.blueAccent),
+        );
       case '/second':
         return MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-                  value: _counterCubit,
-                  child: SecondScreen(
-                      title: 'Second Screen', color: Colors.redAccent),
-                ));
+          builder: (_) =>
+              SecondScreen(title: 'Second Screen', color: Colors.redAccent),
+        );
       case '/third':
         return MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-                  value: _counterCubit,
-                  child: ThirdScreen(
-                      title: 'Third Screen', color: Colors.greenAccent),
-                ));
+          builder: (_) =>
+              ThirdScreen(title: 'Third Screen', color: Colors.greenAccent),
+        );
       default:
         return null;
     }
   }
 
-  @override
-  void dispose() {
-    _counterCubit.close();
-  }
+  // @override
+  // void dispose() {
+  //   _counterCubit.close();
+  // }
 }

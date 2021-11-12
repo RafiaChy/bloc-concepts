@@ -26,40 +26,43 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return BlocProvider<CounterCubit>(
+      create: (context) => CounterCubit(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        // routes: {                                //named route
+        //   '/': (context) => BlocProvider.value(
+        //         value: _counterCubit,
+        //         child: HomeScreen(
+        //           title: 'Flutter Demo Home Page',
+        //           color: Colors.blueAccent,
+        //         ),
+        //       ),
+        //   '/second': (context) => BlocProvider.value(
+        //         value: _counterCubit,
+        //         child:
+        //             SecondScreen(title: 'Second Screen', color: Colors.redAccent),
+        //       ),
+        //   '/third': (context) => BlocProvider.value(
+        //         value: _counterCubit,
+        //         child:
+        //             ThirdScreen(title: 'Third Screen', color: Colors.greenAccent),
+        //       ),
+        // },
+        onGenerateRoute: _appRouter.onGeneratingRoute,
       ),
-      // routes: {                                //named route
-      //   '/': (context) => BlocProvider.value(
-      //         value: _counterCubit,
-      //         child: HomeScreen(
-      //           title: 'Flutter Demo Home Page',
-      //           color: Colors.blueAccent,
-      //         ),
-      //       ),
-      //   '/second': (context) => BlocProvider.value(
-      //         value: _counterCubit,
-      //         child:
-      //             SecondScreen(title: 'Second Screen', color: Colors.redAccent),
-      //       ),
-      //   '/third': (context) => BlocProvider.value(
-      //         value: _counterCubit,
-      //         child:
-      //             ThirdScreen(title: 'Third Screen', color: Colors.greenAccent),
-      //       ),
-      // },
-      onGenerateRoute: _appRouter.onGeneratingRoute,
     );
   }
 
-  @override
-  void dispose() {
-    _appRouter.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _appRouter.dispose();
+  //   super.dispose();
+  // }
 
   // @override
   // void dispose() {
