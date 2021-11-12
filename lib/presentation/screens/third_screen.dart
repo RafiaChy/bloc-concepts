@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_concepts/business_logic/cubit/counter_cubit.dart';
 
-class SecondScreen extends StatefulWidget {
-  SecondScreen({Key? key, required this.title, required this.color})
+class ThirdScreen extends StatefulWidget {
+  ThirdScreen({Key? key, required this.title, required this.color})
       : super(key: key);
 
   final String title;
   final Color color;
 
   @override
-  _SecondScreenState createState() => _SecondScreenState();
+  _ThirdScreenState createState() => _ThirdScreenState();
 }
 
-class _SecondScreenState extends State<SecondScreen> {
+class _ThirdScreenState extends State<ThirdScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
